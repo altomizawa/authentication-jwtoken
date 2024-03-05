@@ -102,4 +102,34 @@ app.post("/login", async (req, res) => {
     } catch (err) {console.log(err)};
 })
 
+// Get Users
+app.get('/users', async (req, res) => {
+    try{
+        //Get all users
+        const users = await User.find();
+
+        // Send all Users
+        if (!users) {
+            return res.status(400).send('No Users in Database')
+        }
+
+        return res.status(200).json(users)
+
+    } catch (err) {console.log(err)}
+})
+
+// Get User by Id
+app.get('/users/:id', async (req, res) => {
+    try{
+        //Find User By Id
+        const user = await User.findById(req.params.id);
+        
+        //Check if there's a user with that Id
+        if (!user) {
+            return res.status(400).send('User not in Database')
+        }
+        return res.status(200).json(user);
+    } catch (err) {console.log(err)}
+})
+
 module.exports = app

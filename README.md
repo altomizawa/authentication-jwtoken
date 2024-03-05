@@ -10,6 +10,8 @@ npm run start - runs the code
 npm run dev - runs the code with auto refresh for development
 
 ##Making Requests using Postman
+1) REGISTER (POST):
+
 http://localhost:3000/register
 method: POST
 sample body (JSON): 
@@ -29,7 +31,8 @@ sample body (JSON):
   ]
 }
 
-##Making Requests using Postman
+2) LOGIN (POST)
+
 http://localhost:3000/login
 method: POST
 sample body (JSON): 
@@ -38,3 +41,10 @@ sample body (JSON):
   "password": 'Your password here',
 }
 
+3) GET ALL USERS (NOT PROTECTED)
+method: GET
+http://localhost:3000/users
+
+4) GET SPECIFIC USER BY ID
+method: GET
+http://localhost:3000/users/:id
